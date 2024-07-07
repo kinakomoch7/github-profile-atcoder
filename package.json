@@ -1,0 +1,19 @@
+{
+  "name": "git-hub-profile-atcorder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "build:watch": "npx tsc --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.19.39",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  }
+}
