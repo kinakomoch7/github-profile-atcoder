@@ -28,6 +28,7 @@ export const main = async (): Promise<void> => {
 
     // ABCのAC数取得
     const AcCount = await getAcCount({ userName });
+    console.log(AcCount);
 
 
   } catch (error) {

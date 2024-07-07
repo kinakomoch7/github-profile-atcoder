@@ -1,14 +1,13 @@
 import * as core from '@actions/core';
 import axios from 'axios';
+import { rateDataType } from '../types/RateDataType';
 
 type Props = {
   userName: string;
 }
 
-const getRateData = async (props: Props): Promise<any> => {
+const getRateData = async (props: Props): Promise<rateDataType> => {
   const { userName } = props;
-
-  console.log(userName)
 
   try {
     const response = await axios.get(`https://atcoder.jp/users/${userName}/history/json`);
