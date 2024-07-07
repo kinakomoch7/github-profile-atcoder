@@ -1,6 +1,7 @@
 import * as core from '@actions/core';
 import * as dotenv from 'dotenv';
 import getRateData from './api/getRateData';
+import getAcCount from './api/getAcCount';
 
 
 export const main = async (): Promise<void> => {
@@ -22,10 +23,12 @@ export const main = async (): Promise<void> => {
       return;
     }
 
-    // データ取得
+    // レートデータ取得
     const data = await getRateData({ userName });
 
-    console.log(data); // 取得データのログ
+    // ABCのAC数取得
+    const AcCount = await getAcCount({ userName });
+
 
   } catch (error) {
     console.error(error);

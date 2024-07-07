@@ -5,7 +5,6 @@ type Props = {
   userName: string;
 }
 
-// AtCoderのレートデータを取得する
 const getRateData = async (props: Props): Promise<any> => {
   const { userName } = props;
 
