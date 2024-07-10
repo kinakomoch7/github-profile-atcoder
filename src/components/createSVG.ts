@@ -1,15 +1,16 @@
-import * as d3 from "d3";
 import { JSDOM } from "jsdom";
+import * as d3 from "d3";
+
 
 export const createSVG = ():string => {
   // SVG環境を設定
-  const dom = new JSDOM("<!DOCTYPE html><html><body></body></html>");
-  const body = d3.select(dom.window.document).select("body");
+  const dom = new JSDOM(`<!DOCTYPE html><html><body><div class="container"></div></body></html>`);
+  const container = d3.select(dom.window.document).select(".container");
 
   // SVGコンテナを作成
   const width = 200;
   const height = 200;
-  const svg = body.append("svg").attr("width", width).attr("height", height);
+  const svg = container.append("svg").attr("width", width).attr("height", height);
 
   // 四角形を描画
   svg
@@ -21,11 +22,7 @@ export const createSVG = ():string => {
     .attr("fill", "blue");
 
   // SVGを文字列として取得
-  const svgString = body.html();
+  const svgString = container.html();
 
   return svgString;
-  // SVG文字列を出力
-  console.log(svgString);
 };
-
-// module.exports = createSVG;
