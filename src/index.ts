@@ -1,14 +1,13 @@
-import * as core from '@actions/core';
-import * as dotenv from 'dotenv';
-import getRateData from './api/getRateData';
-import getAcCount from './api/getAcCount';
-import getAllProblemsCount from './api/getAllProblemsCount';
+import * as core from "@actions/core";
+import * as dotenv from "dotenv";
+import getRateData from "./api/getRateData";
+import getAcCount from "./api/getAcCount";
+import getAllProblemsCount from "./api/getAllProblemsCount";
 // const createSVG = require('./components/createSVG')
-import * as r from './components/createSVG';
-import * as f from './components/filewrite';
+import * as create from "./components/createSVG";
+import * as f from "./components/fileWrite";
 
 export const main = async (): Promise<void> => {
-
   dotenv.config();
 
   try {
@@ -37,15 +36,13 @@ export const main = async (): Promise<void> => {
     // const allProblemCount = await getAllProblemsCount();
     // console.log(allProblemCount);
 
-    const test = r.createSVG();
-    f.writeFile('profile-svg', r.createSVG());
+    const test = create.createSVG();
+    f.writeFile('profile-svg', create.createSVG());
     console.log(test);
-
-
   } catch (error) {
     console.error(error);
-    core.setFailed('error');
+    core.setFailed("error");
   }
-}
+};
 
 void main();
