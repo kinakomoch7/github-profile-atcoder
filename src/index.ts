@@ -5,7 +5,7 @@ import getAcCount from "./api/getAcCount";
 import getAllProblemsCount from "./api/getAllProblemsCount";
 // const createSVG = require('./components/createSVG')
 import * as create from "./components/createSVG";
-import * as f from "./components/fileWrite";
+import writeFile from "./components/writeFile";
 
 export const main = async (): Promise<void> => {
   dotenv.config();
@@ -37,7 +37,7 @@ export const main = async (): Promise<void> => {
     // console.log(allProblemCount);
 
     const test = create.createSVG();
-    f.writeFile('profile-svg', create.createSVG());
+    writeFile('profile-svg', create.createSVG());
     console.log(test);
   } catch (error) {
     console.error(error);
