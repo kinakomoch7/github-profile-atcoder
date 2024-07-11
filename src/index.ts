@@ -3,11 +3,11 @@ import * as dotenv from "dotenv";
 import getRateData from "./api/getRateData";
 import getAcCount from "./api/getAcCount";
 import getAllProblemsCount from "./api/getAllProblemsCount";
-// const createSVG = require('./components/createSVG')
-import * as create from "./components/createSVG";
 import writeFile from "./components/writeFile";
+import createSVG from "./components/createSVG";
 
 export const main = async (): Promise<void> => {
+  //環境変数の読み込み
   dotenv.config();
 
   try {
@@ -27,18 +27,28 @@ export const main = async (): Promise<void> => {
 
     // // // レートデータ取得
     // const rateData = await getRateData({ userName });
-    // console.log(rateData);
+    // if (!rateData) {
+    //   core.setFailed('rateData is not found');
+    //   return;
+    // }
 
     // // // ABCのAC数取得
     // const AcCount = await getAcCount({ userName });
-    // console.log(AcCount);
+    // if (!AcCount) {
+    //   core.setFailed('AcCount is not found');
+    //   return;
+    // }
 
     // const allProblemCount = await getAllProblemsCount();
-    // console.log(allProblemCount);
+    // if (!allProblemCount) {
+    //   core.setFailed('allProblemCount is not found');
+    //   return;
+    // }
 
-    const test = create.createSVG();
-    writeFile('profile-svg', create.createSVG());
-    console.log(test);
+    // SVGを作成
+    // writeFile('profile-svg', createSVG());
+
+
   } catch (error) {
     console.error(error);
     core.setFailed("error");
