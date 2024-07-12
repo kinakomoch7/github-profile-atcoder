@@ -5,6 +5,7 @@ import getAcCount from "./api/getAcCount";
 import getAllProblemsCount from "./api/getAllProblemsCount";
 import writeFile from "./components/writeFile";
 import createSVG from "./components/createSVG";
+import createRateChart from "./components/createRateChart";
 
 export const main = async (): Promise<void> => {
   //環境変数の読み込み
@@ -18,7 +19,7 @@ export const main = async (): Promise<void> => {
     //   return;
     // }
 
-    // ユーザ名の取得
+    // // ユーザ名の取得
     // const userName = (3 <= process.argv.length) ? process.argv[2] : process.env.USER_NAME;
     // if (!userName) {
     //   core.setFailed('USERNAME is not set');
@@ -31,6 +32,9 @@ export const main = async (): Promise<void> => {
     //   core.setFailed('rateData is not found');
     //   return;
     // }
+    // console.log(rateData);
+
+    // writeFile('rate-chart.svg', createRateChart(rateData));
 
     // // // ABCのAC数取得
     // const AcCount = await getAcCount({ userName });
@@ -46,7 +50,7 @@ export const main = async (): Promise<void> => {
     // }
 
     // SVGを作成
-    // writeFile('profile-svg', createSVG());
+    // writeFile('profile-svg.svg', createSVG());
 
 
   } catch (error) {

@@ -10,3 +10,8 @@ export type rateDataType = {
   ContestNameEn?: string,
   EndTime: string
 };
+
+export type formatRateDataType = {
+  date: Date,
+  score: number
+};
