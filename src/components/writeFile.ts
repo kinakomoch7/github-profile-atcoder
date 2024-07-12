@@ -1,5 +1,5 @@
 import { mkdirSync, writeFileSync } from 'fs';
-import { OUTPUT_FOLDER } from '../constants';
+import { OUTPUT_FOLDER } from '../constants/constants';
 
 const writeFile = (fileName: string, content: string): void => {
     mkdirSync(OUTPUT_FOLDER, { recursive: true });

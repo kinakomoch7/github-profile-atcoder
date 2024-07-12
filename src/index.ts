@@ -19,22 +19,22 @@ export const main = async (): Promise<void> => {
     //   return;
     // }
 
-    // // ユーザ名の取得
-    // const userName = (3 <= process.argv.length) ? process.argv[2] : process.env.USER_NAME;
-    // if (!userName) {
-    //   core.setFailed('USERNAME is not set');
-    //   return;
-    // }
+    // ユーザ名の取得
+    const userName = (3 <= process.argv.length) ? process.argv[2] : process.env.USER_NAME;
+    if (!userName) {
+      core.setFailed('USERNAME is not set');
+      return;
+    }
 
-    // // // レートデータ取得
-    // const rateData = await getRateData({ userName });
-    // if (!rateData) {
-    //   core.setFailed('rateData is not found');
-    //   return;
-    // }
-    // console.log(rateData);
+    // // レートデータ取得
+    const rateData = await getRateData({ userName });
+    if (!rateData) {
+      core.setFailed('rateData is not found');
+      return;
+    }
+    console.log(rateData);
 
-    // writeFile('rate-chart.svg', createRateChart(rateData));
+    writeFile('rate-chart.svg', createRateChart(rateData));
 
     // // // ABCのAC数取得
     // const AcCount = await getAcCount({ userName });
