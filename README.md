@@ -1,1 +1,27 @@
 # Github Profile Atcorder
+
+```
+name: Git-Hub-Profile-AtCoder
+
+on:
+  schedule: # 03:00 JST == 18:00 UTC
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: generate-Git-Hub-Profile-AtCoder
+    steps:
+      - uses: actions/checkout@v3
+      - uses: kinakomoch7/git-hub-profile-atcorder@v0.1.0
+        env:
+          USER_NAME: inoue_r
+      - name: Commit & Push
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add -A .
+          git commit -m "generated"
+          git push
+```
