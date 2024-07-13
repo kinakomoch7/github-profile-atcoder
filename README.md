@@ -1,4 +1,4 @@
-# Github Profile Atcorder
+# Github Profile Atcoder
 
 ## 概要
 この GitHub Action は [AtCoder](https://atcoder.jp/?lang=ja)のSVGで作成します。
@@ -7,17 +7,17 @@
 
 ## 使い方
 
-この GitHub Action はAtCoderのマイプロフィールに表示されるコンテスト実績の推移グラフのSVGファイルを GitHub プロフィール用に作成し、レポジトリにコミットします。
+この GitHub Action はAtCoderのマイプロフィールに表示されるコンテスト実績の推移グラフのSVGファイルを GitHub プロフィール用に作成し、リポジトリにコミットします。
 
-### 手順１. プロフィール用のレポジトリを作成する
-ユーザ名と同一のレポジトリを作成してください。
+### 手順１. プロフィール用のリポジトリを作成する
+ユーザ名と同一のリポジトリを作成してください。
 以降このレポジトリでの作業を想定しています。
 
 ### 手順２．GitHub Actions を動かすためのファイルを作成する
 
 GitHub Actions を動かすために、以下のようなファイルを作成します
 
-``` .github/workflows/[お好みのファイル名].yml ```
+``` .github/workflows/profile-atcorder.yml ```
 
 GitHub Actionsを用いて、初期値は１日１回１８時に実行されます。
 下記のcronを調整して、お好みの時間に修正してください
@@ -55,7 +55,7 @@ jobs:
 
 ### 手順３.GitHub Actionの起動
 
-レポジトリの画面から追加したアクションを起動してください
+リポジトリの画面から追加したアクションを起動してください
 ```[プロフィールレポジトリ]``` ->```Actions```->```[手順２で設定したアクション名]```-> ```Run workflow```
 
 画像は以下のパスで作成されます
