@@ -37,9 +37,12 @@ const constants_1 = require("../../constants/constants");
 const createRateChart = (data) => {
     const dom = new jsdom_1.JSDOM(`<!DOCTYPE html><html><body><div class="container"></div></body></html>`);
     const container = d3.select(dom.window.document).select(".container");
-    const svg = container.append("svg")
+    const svg = container
+        .append("svg")
+        .attr('xmlns', 'http://www.w3.org/2000/svg')
         .attr("width", styleConstants_1.RATE_WIDTH)
-        .attr("height", styleConstants_1.RATE_HEIGHT);
+        .attr("height", styleConstants_1.RATE_HEIGHT)
+        .attr('viewBox', `0 0 ${styleConstants_1.RATE_WIDTH} ${styleConstants_1.RATE_HEIGHT}`);
     // 背景
     svg.append("rect")
         .attr("x", styleConstants_1.RATE_MARGIN.left)
