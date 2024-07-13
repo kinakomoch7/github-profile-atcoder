@@ -5,7 +5,7 @@ import getAcCount from "./api/getAcCount";
 import getAllProblemsCount from "./api/getAllProblemsCount";
 import writeFile from "./components/writeFile";
 import createSVG from "./components/createSVG";
-import createRateChart from "./components/createRateChart";
+import createRateChart from "./components/rateChart/createRateChart";
 
 export const main = async (): Promise<void> => {
   //環境変数の読み込み
