@@ -19,7 +19,7 @@
 
 GitHub Actions を動かすために、以下のようなファイルを作成します
 
-``` .github/workflows/profile-atcorder.yml ```
+``` .github/workflows/profile-atcoder.yml ```
 
 GitHub Actionsを用いて、初期値は１日１回１８時に実行されます。
 下記のcronを調整して、お好みの時間に修正してください
@@ -43,7 +43,7 @@ jobs:
     name: generate-Git-Hub-Profile-AtCoder
     steps:
       - uses: actions/checkout@v3
-      - uses: kinakomoch7/git-hub-profile-atcorder@v0.1.6
+      - uses: kinakomoch7/git-hub-profile-atcoder@v0.1.6
         env:
           USER_NAME: inoue_r
       - name: Commit & Push
@@ -62,7 +62,7 @@ jobs:
 
 画像は以下のパスで作成されます
 
-```profile-AtCorder/rate-chart.svg```
+```profile-atcoder/rate-chart.svg```
 
 
 ### 手順４.README.mdを追加
@@ -70,4 +70,4 @@ jobs:
 生成した画像のパスを readme ファイルに追加します
 
 例：
-``` ![](./profile-AtCorder/rate-chart.svg) ```
+``` ![](./profile-atcoder/rate-chart.svg) ```

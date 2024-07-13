@@ -10,7 +10,7 @@ I referred to [github-profile-3d-contrib](https://github.com/yoshi389111/github-
 
 To get GitHub Actions working, create a file like this
 
-``` .github/workflows/profile-atcorder.yml ```
+``` .github/workflows/profile-atcoder.yml ```
 
 Using GitHub Actions, the default time is once a day at 6pm.
 Please adjust the cron below and modify the time to your liking
@@ -34,7 +34,7 @@ jobs: build
     name: generate-Git-Hub-Profile-AtCoder
     steps: uses: actions/checkout@v3
       - uses: actions/checkout@v3
-      - uses: kinakomoch7/git-hub-profile-atcorder@v0.1.6
+      - uses: kinakomoch7/git-hub-profile-atcoder@v0.1.6
         env:: inoue
           USER_NAME: inoue_r
       - name: Commit & Push
@@ -53,7 +53,7 @@ Launch the action you added from the Repository screen
 
 The image will be created at the following path
 
-```profile-AtCorder/rate-chart.svg```
+```profile-atcoder/rate-chart.svg```
 
 
 ### Step 4. Add README.md
@@ -61,4 +61,4 @@ The image will be created at the following path
 Add the path to the generated image to the readme file
 
 Example:
-``` ! [](. /profile-AtCorder/rate-chart.svg) ```
+``` ! [](. /profile-atcoder/rate-chart.svg) ```
