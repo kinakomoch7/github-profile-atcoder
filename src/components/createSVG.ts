@@ -2,17 +2,16 @@ import { JSDOM } from "jsdom";
 import * as d3 from "d3";
 
 
-export const createSVG = ():string => {
-  // SVG環境を設定
+const createSVG = ():string => {
+
+  // 仮想DOMを作成
   const dom = new JSDOM(`<!DOCTYPE html><html><body><div class="container"></div></body></html>`);
   const container = d3.select(dom.window.document).select(".container");
 
-  // SVGコンテナを作成
   const width = 200;
   const height = 200;
   const svg = container.append("svg").attr("width", width).attr("height", height);
 
-  // 四角形を描画
   svg
     .append("rect")
     .attr("x", 50)
@@ -21,8 +20,9 @@ export const createSVG = ():string => {
     .attr("height", 100)
     .attr("fill", "blue");
 
-  // SVGを文字列として取得
   const svgString = container.html();
 
   return svgString;
 };
+
+export default createSVG;

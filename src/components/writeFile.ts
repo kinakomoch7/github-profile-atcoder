@@ -1,8 +1,9 @@
 import { mkdirSync, writeFileSync } from 'fs';
+import { OUTPUT_FOLDER } from '../constants/constants';
 
-export const OUTPUT_FOLDER = './profile-3d-contrib';
-
-export const writeFile = (fileName: string, content: string): void => {
+const writeFile = (fileName: string, content: string): void => {
     mkdirSync(OUTPUT_FOLDER, { recursive: true });
     writeFileSync(`${OUTPUT_FOLDER}/${fileName}`, content);
 };
+
+export default writeFile;

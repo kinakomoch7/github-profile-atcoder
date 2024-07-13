@@ -1,4 +1,6 @@
-import { RenameContestsType } from "./types/RenameContestsType";
+import { RenameContestsType } from "../types/RenameContestsType";
+
+export const OUTPUT_FOLDER = './profile-AtCoder';
 
 export const RenameContestList:RenameContestsType[] = [
   { abc042: {

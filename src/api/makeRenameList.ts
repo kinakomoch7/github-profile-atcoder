@@ -1,4 +1,4 @@
-import { RenameContestList } from "../constants";
+import { RenameContestList } from "../constants/constants";
 import { RenameContestsType } from "../types/RenameContestsType";
 
 
