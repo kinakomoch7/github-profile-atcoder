@@ -1,5 +1,28 @@
 # Github Profile Atcorder
 
+## 概要
+この GitHub Action は [AtCoder](https://atcoder.jp/?lang=ja)のSVGで作成します。
+実装には yoshi389111 さんの [github-profile-3d-contrib](https://github.com/yoshi389111/github-profile-3d-contrib) を参考にしました。
+
+## 使い方
+
+この GitHub Action はAtCoderのマイプロフィールに表示されるコンテスト実績の推移グラフのSVGファイルを GitHub プロフィール用に作成し、レポジトリにコミットします。
+
+### 手順１. プロフィール用のレポジトリを作成する
+ユーザ名と同一のレポジトリを作成してください。
+以降このレポジトリでの作業を想定しています。
+
+### 手順２．GitHub Actions を動かすためのファイルを作成する
+
+GitHub Actions を動かすために、以下のようなファイルを作成します
+
+``` .github/workflows/[お好みのファイル名].yml ```
+
+GitHub Actionsを用いて、初期値は１日１回１８時に実行されます。
+下記のcronを調整して、お好みの時間に修正してください
+
+※USER_NAMEは自分のアカウント名に書き換えてください
+
 ```
 name: Git-Hub-Profile-AtCoder
 
@@ -29,3 +52,18 @@ jobs:
           git push
 ```
 
+### 手順３.GitHub Actionの起動
+
+レポジトリの画面から追加したアクションを起動してください
+```[プロフィールレポジトリ]``` ->```Actions```->```[手順２で設定したアクション名]```-> ```Run workflow```
+
+画像は以下のパスで作成されます
+
+```profile-AtCorder/rate-chart.svg```
+
+
+### 手順４.README.mdを追加
+
+生成した画像のパスを readme ファイルに追加します
+例：
+``` ![](./profile-AtCorder/rate-chart.svg) ```
