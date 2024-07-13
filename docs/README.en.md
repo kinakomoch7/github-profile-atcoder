@@ -17,7 +17,7 @@ Please adjust the cron below and modify the time to your liking
 
 *Replace USER_NAME with your account name.
 
-```` name: Git-Hub-Profile
+```
 name: Git-Hub-Profile-AtCoder
 
 on: # 03:00 JST
