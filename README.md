@@ -1,4 +1,6 @@
-# Github Profile Atcoder
+# GitHub Profile AtCoder
+
+[日本語](./docs/README.ja.md) | [English](./docs/README.en.md)
 
 ## 概要
 この GitHub Action は [AtCoder](https://atcoder.jp/?lang=ja)のSVGで作成します。
