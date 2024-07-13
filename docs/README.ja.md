@@ -25,6 +25,7 @@ GitHub Actions を動かすために、以下のようなファイルを作成�
 ``` .github/workflows/profile-atcoder.yml ```
 
 GitHub Actionsを用いて、初期値は１日１回１８時に実行されます。
+
 下記のcronを調整して、お好みの時間に修正してください
 
 ※USER_NAMEは自分のアカウント名に書き換えてください
