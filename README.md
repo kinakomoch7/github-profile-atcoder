@@ -14,7 +14,7 @@ jobs:
     name: generate-Git-Hub-Profile-AtCoder
     steps:
       - uses: actions/checkout@v3
-      - uses: kinakomoch7/git-hub-profile-atcorder@v0.1.0
+      - uses: kinakomoch7/git-hub-profile-atcorder@v0.1.3
         env:
           USER_NAME: inoue_r
       - name: Commit & Push
@@ -25,3 +25,4 @@ jobs:
           git commit -m "generated"
           git push
 ```
+
