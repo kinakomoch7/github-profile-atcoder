@@ -71,7 +71,7 @@ jobs:
 
 画像は以下のパスで作成されます。
 
-```profile-atcoder/rate-chart.svg```
+```profile-AtCoder/rate-chart.svg```
 
 ※基本的には月曜日の午前3時に自動で起動し更新処理を行いますが、すぐに更新したい場合はこの手順を実施してください。
 
@@ -80,6 +80,6 @@ jobs:
 生成した画像のパスを readme ファイルに追加します。
 
 例：
-``` ![](./profile-atcoder/rate-chart.svg) ```
+``` ![](./profile-AtCoder/rate-chart.svg) ```
 
 ※プロフィールの反映までに数分かかる場合があります。

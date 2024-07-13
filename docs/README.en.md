@@ -69,7 +69,7 @@ From the repository screen, trigger the action:
 
 The image will be created at the following path:
 
-```profile-atcoder/rate-chart.svg```
+```profile-AtCoder/rate-chart.svg```
 
 **Note:** The action will automatically run and update every Sunday at 6 PM UTC, but you can follow this step to trigger it manually if you want to update immediately.
 
@@ -78,6 +78,6 @@ The image will be created at the following path:
 Add the path to the generated image in your `README.md` file.
 
 Example:
-```![](./profile-atcoder/rate-chart.svg)```
+```![](./profile-AtCoder/rate-chart.svg)```
 
 **Note:** It may take a few minutes for the changes to appear on your profile.
