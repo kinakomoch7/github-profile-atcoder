@@ -2,6 +2,7 @@
 
 ## 概要
 この GitHub Action は [AtCoder](https://atcoder.jp/?lang=ja)のSVGで作成します。
+
 実装には yoshi389111 さんの [github-profile-3d-contrib](https://github.com/yoshi389111/github-profile-3d-contrib) を参考にしました。
 
 ## 使い方
@@ -65,5 +66,6 @@ jobs:
 ### 手順４.README.mdを追加
 
 生成した画像のパスを readme ファイルに追加します
+
 例：
 ``` ![](./profile-AtCorder/rate-chart.svg) ```
