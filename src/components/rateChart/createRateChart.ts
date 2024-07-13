@@ -5,6 +5,8 @@ import { CalcMaxScore } from "./calcScore";
 import { RATE_HEIGHT, RATE_MARGIN, RATE_OUTLINE_COLOR, RATE_WIDTH } from "../../constants/styleConstants";
 import determineTimeFormat from "./determineTimeFormat";
 import determineTimeTicks from "./determineTimeTicks";
+import determineColor from "./determineColor";
+import { BG_COLOR_THEME } from "../../constants/constants";
 
 
 const createRateChart = (data: formatRateDataType[]): string => {
@@ -39,12 +41,26 @@ const createRateChart = (data: formatRateDataType[]): string => {
     .domain([0, maxScore]).nice()
     .range([RATE_HEIGHT - RATE_MARGIN.bottom, RATE_MARGIN.top]);
 
+  // レートごとで背景色を変える
+  const tickValues = d3.range(0, maxScore, 400);
+  tickValues.forEach((domainValue, index) => {
+    const nextValue = domainValue + 400;
+    const rectHeight = index === tickValues.length-1 ? y(maxScore) - y(maxScore+100)  : y(domainValue) - y(nextValue);
+    svg.append("rect")
+      .attr("x", RATE_MARGIN.left)
+      .attr("y",  index === tickValues.length-1 ? RATE_MARGIN.top : y(nextValue))
+      .attr("width", RATE_WIDTH - RATE_MARGIN.left - RATE_MARGIN.right)
+      .attr("height", rectHeight)
+      .attr("fill", BG_COLOR_THEME[index]);
+  });
+  
+
   // Y軸
   svg.append("g")
     .attr("class", "y-axis")
     .attr("transform", `translate(${RATE_MARGIN.left}, 0)`)
     .call(d3.axisLeft(y)
-          .tickValues(d3.range(0, maxScore + 400, 400))
+          .tickValues(d3.range(0, maxScore, 400))
           .tickSize(0)
           .tickSizeOuter(0))
     .select(".domain")
@@ -103,16 +119,9 @@ const createRateChart = (data: formatRateDataType[]): string => {
     .attr("cx", d => x(d.date))
     .attr("cy", d => y(d.score))
     .attr("r", 4)
-    .attr("fill", "rgb(125,125,125)")
+    .attr("fill", (d) => determineColor(d.score))
     .attr("stroke", "rgb(255,255,255)")
     .attr("stroke-width", 1);
-
-  // svg.append("text")
-  //   .attr("x", x(data[data.length - 1].date))
-  //   .attr("dy", "-1em")
-  //   .attr("text-anchor", "middle")
-  //   .text(`Highest: ${d3.max(data, d => d.score)}`)
-  //   .attr("fill", "black");
 
   const svgString = container.html();
   return svgString;
