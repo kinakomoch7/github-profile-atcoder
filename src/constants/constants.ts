@@ -2,6 +2,9 @@ import { RenameContestsType } from "../types/RenameContestsType";
 
 export const OUTPUT_FOLDER = './profile-AtCoder';
 
+export const BG_COLOR_THEME = ["rgb(216,216,216)", "rgb(215,197,178)", "rgb(188,216,184)", "rgb(196,236,236)", "rgb(196,236,236)", "rgb(236,236,187)", "rgb(253,216,178)", "rgb(252,178,178)"]
+export const CIRCLE_COLOR_THEME = ["rgb(123,123,123)", "rgb(122,62,0)", "rgb(15,108,8)", "rgb(52,187,188)", "rgb(14,30,241)", "rgb(184,185,24)",  "rgb(239,123,0)", "rgb(235,0,0)"]
+
 export const RenameContestList:RenameContestsType[] = [
   { abc042: {
     C: 'arc058_a',
