@@ -3,6 +3,7 @@
 [日本語](./docs/README.ja.md) | [English](./docs/README.en.md)
 
 ## 概要
+
 この GitHub Action は [AtCoder](https://atcoder.jp/?lang=ja)のSVGで作成します。
 
 実装には yoshi389111 さんの [github-profile-3d-contrib](https://github.com/yoshi389111/github-profile-3d-contrib) を参考にしました。
@@ -12,7 +13,9 @@
 この GitHub Action はAtCoderのマイプロフィールに表示されるコンテスト実績の推移グラフのSVGファイルを GitHub プロフィール用に作成し、リポジトリにコミットします。
 
 ### 手順１. プロフィール用のリポジトリを作成する
+
 ユーザ名と同一のリポジトリを作成してください。
+
 以降このリポジトリでの作業を想定しています。
 
 ### 手順２．GitHub Actions を動かすためのファイルを作成する
@@ -22,6 +25,7 @@ GitHub Actions を動かすために、以下のようなファイルを作成�
 ``` .github/workflows/profile-atcoder.yml ```
 
 GitHub Actionsを用いて、初期値は１日１回１８時に実行されます。
+
 下記のcronを調整して、お好みの時間に修正してください
 
 ※USER_NAMEは自分のアカウント名に書き換えてください
