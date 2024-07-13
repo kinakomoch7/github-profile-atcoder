@@ -2,44 +2,58 @@
 
 ## Overview
 
-This GitHub Action is created with SVG from [AtCoder](https://atcoder.jp/?lang=en).
+This GitHub Action creates an AtCoder contest performance graph and displays it on your GitHub profile.
 
-I referred to [github-profile-3d-contrib](https://github.com/yoshi389111/github-profile-3d-contrib) by yoshi389111 for implementation.
+The implementation is based on [github-profile-3d-contrib](https://github.com/yoshi389111/github-profile-3d-contrib) by yoshi389111.
 
-## Way to use this action
+## How to Use
 
-To get GitHub Actions working, create a file like this
+This GitHub Action creates an SVG file of the contest performance graph from your AtCoder profile and commits it to your repository for use on your GitHub profile.
+
+### Step 1. Create a Repository for Your Profile
+
+Create a repository with the same name as your GitHub username.
+
+The following steps assume you will work in this repository.
+
+Reference: [Managing your profile README](https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)
+
+### Step 2. Create a File for GitHub Actions
+
+To set up the GitHub Action, create the following file:
 
 ``` .github/workflows/profile-atcoder.yml ```
 
-Using GitHub Actions, the default time is once a day at 6pm.
+Add the following code to the created file:
 
-Please adjust the cron below and modify the time to your liking.
+The GitHub Action will run automatically every Sunday at 6 PM UTC.
 
-*Replace USER_NAME with your account name.
+You can adjust the `cron` schedule to your preferred time.
+
+**Note:** Replace `USER_NAME` with your AtCoder username.
 
 ```
 name: Git-Hub-Profile-AtCoder
 
-on: # 03:00 JST
-  schedule: # 03:00 JST == 18:00 UTC
-    - cron: "0 18 * * *"
-  workflow_dispatch:: permissions
+on:
+  schedule: # 18:00 UTC
+    - cron: "0 18 * * 0"
+  workflow_dispatch:
 
-permissions: write
+permissions:
   contents: write
 
-jobs: build
-  build: build
+jobs:
+  build:
     runs-on: ubuntu-latest
     name: generate-Git-Hub-Profile-AtCoder
-    steps: uses: actions/checkout@v3
+    steps:
       - uses: actions/checkout@v3
-      - uses: kinakomoch7/git-hub-profile-atcoder@v0.1.6
-        env:: inoue
-          USER_NAME: inoue_r
+      - uses: kinakomoch7/git-hub-profile-atcoder@v0.2.0
+        env:
+          USER_NAME: Your AtCoder Username
       - name: Commit & Push
-        run: | git config user.name github-actions
+        run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add -A .
@@ -47,19 +61,23 @@ jobs: build
           git push
 ```
 
-### Step 3. Launch GitHub Action
+### Step 3. Trigger the GitHub Action
 
-Launch the action you added from the Repository screen.
-```[Profile Repository]``` ->```Actions```->```Git-Hub-Profile-AtCoder```-> ```Run workflow```
+From the repository screen, trigger the action:
 
-The image will be created at the following path.
+```[Profile Repository]``` -> ```Actions``` -> ```[The Action Name from Step 2]``` -> ```Run workflow```
+
+The image will be created at the following path:
 
 ```profile-atcoder/rate-chart.svg```
 
+**Note:** The action will automatically run and update every Sunday at 6 PM UTC, but you can follow this step to trigger it manually if you want to update immediately.
 
-### Step 4. Add README.md
+### Step 4. Add to Your README.md
 
-Add the path to the generated image to the readme file.
+Add the path to the generated image in your `README.md` file.
 
 Example:
-``` ! [](. /profile-atcoder/rate-chart.svg) ```
+```![](./profile-atcoder/rate-chart.svg)```
+
+**Note:** It may take a few minutes for the changes to appear on your profile.
