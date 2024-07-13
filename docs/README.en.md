@@ -49,11 +49,11 @@ jobs: build
 ### Step 3. Launch GitHub Action
 
 Launch the action you added from the Repository screen
-````[Profile Repository]`` ->```Actions```->```[Action name set in step 2]``-> ```Run workflow``
+```[Profile Repository]``` ->```Actions```->```[Action name set in step 2]```-> ```Run workflow```
 
 The image will be created at the following path
 
-```profile-AtCorder/rate-chart.svg``
+```profile-AtCorder/rate-chart.svg```
 
 
 ### Step 4. Add README.md
