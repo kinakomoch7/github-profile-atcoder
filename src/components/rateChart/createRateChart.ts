@@ -14,9 +14,12 @@ const createRateChart = (data: formatRateDataType[]): string => {
   const dom = new JSDOM(`<!DOCTYPE html><html><body><div class="container"></div></body></html>`);
   const container = d3.select(dom.window.document).select(".container");
 
-  const svg = container.append("svg")
+  const svg = container
+    .append("svg")
+    .attr('xmlns', 'http://www.w3.org/2000/svg')
     .attr("width", RATE_WIDTH)
-    .attr("height", RATE_HEIGHT);
+    .attr("height", RATE_HEIGHT)
+    .attr('viewBox', `0 0 ${RATE_WIDTH} ${RATE_HEIGHT}`);
 
 
   // 背景
