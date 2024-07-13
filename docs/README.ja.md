@@ -20,14 +20,14 @@
 
 ### 手順２．GitHub Actions を動かすためのファイルを作成する
 
-GitHub Actions を動かすために、以下のようなファイルを作成します
+GitHub Actions を動かすために、以下のようなファイルを作成します。
 
 ``` .github/workflows/profile-atcoder.yml ```
 
-GitHub Actionsを用いて、初期値は１日１回１８時に実行されます。
-下記のcronを調整して、お好みの時間に修正してください
+GitHub Actionsを用いて、初期値は１日１回午前３時に実行されます。
+下記のcronを調整して、お好みの時間に修正してください。
 
-※USER_NAMEは自分のアカウント名に書き換えてください
+※USER_NAMEは自分のアカウント名に書き換えてください。
 
 ```
 name: Git-Hub-Profile-AtCoder
@@ -62,18 +62,18 @@ jobs:
 
 ### 手順３.GitHub Actionの起動
 
-リポジトリの画面から追加したアクションを起動してください
+リポジトリの画面から追加したアクションを起動してください。
 
 ```[プロフィールリポジトリ]``` ->```Actions```->```Git-Hub-Profile-AtCoder```-> ```Run workflow```
 
-画像は以下のパスで作成されます
+画像は以下のパスで作成されます。
 
 ```profile-atcoder/rate-chart.svg```
 
 
 ### 手順４.README.mdを追加
 
-生成した画像のパスを readme ファイルに追加します
+生成した画像のパスを readme ファイルに追加します。
 
 例：
 ``` ![](./profile-atcoder/rate-chart.svg) ```

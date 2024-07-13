@@ -13,7 +13,8 @@ To get GitHub Actions working, create a file like this
 ``` .github/workflows/profile-atcoder.yml ```
 
 Using GitHub Actions, the default time is once a day at 6pm.
-Please adjust the cron below and modify the time to your liking
+
+Please adjust the cron below and modify the time to your liking.
 
 *Replace USER_NAME with your account name.
 
@@ -48,17 +49,17 @@ jobs: build
 
 ### Step 3. Launch GitHub Action
 
-Launch the action you added from the Repository screen
+Launch the action you added from the Repository screen.
 ```[Profile Repository]``` ->```Actions```->```Git-Hub-Profile-AtCoder```-> ```Run workflow```
 
-The image will be created at the following path
+The image will be created at the following path.
 
 ```profile-atcoder/rate-chart.svg```
 
 
 ### Step 4. Add README.md
 
-Add the path to the generated image to the readme file
+Add the path to the generated image to the readme file.
 
 Example:
 ``` ! [](. /profile-atcoder/rate-chart.svg) ```
