@@ -1,0 +1,11 @@
+name: Git-Hub-Profile-AtCoder
+description: Generate profile AtCoder score
+author: kinakomoch7
+
+runs:
+  using: 'node19'
+  main: 'dist/index.js'
+
+branding:
+  icon: 'box'
+  color: 'green'
