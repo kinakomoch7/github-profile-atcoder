@@ -21,8 +21,15 @@ const createRateChart = (data: formatRateDataType[]): string => {
     .attr("height", RATE_HEIGHT)
     .attr('viewBox', `0 0 ${RATE_WIDTH} ${RATE_HEIGHT}`);
 
-
-  // 背景
+  // 白抜き
+  svg.append("rect")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", RATE_WIDTH)
+    .attr("height", RATE_HEIGHT)
+    .attr("fill", "rgb(255,255,255)");
+  
+  // グラフの背景
   svg.append("rect")
   .attr("x", RATE_MARGIN.left)
   .attr("y", RATE_MARGIN.top)

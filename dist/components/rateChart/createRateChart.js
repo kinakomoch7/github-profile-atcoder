@@ -43,7 +43,14 @@ const createRateChart = (data) => {
         .attr("width", styleConstants_1.RATE_WIDTH)
         .attr("height", styleConstants_1.RATE_HEIGHT)
         .attr('viewBox', `0 0 ${styleConstants_1.RATE_WIDTH} ${styleConstants_1.RATE_HEIGHT}`);
-    // 背景
+    // 白抜き
+    svg.append("rect")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("width", styleConstants_1.RATE_WIDTH)
+        .attr("height", styleConstants_1.RATE_HEIGHT)
+        .attr("fill", "rgb(255,255,255)");
+    // グラフの背景
     svg.append("rect")
         .attr("x", styleConstants_1.RATE_MARGIN.left)
         .attr("y", styleConstants_1.RATE_MARGIN.top)
