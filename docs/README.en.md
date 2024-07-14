@@ -49,7 +49,7 @@ jobs:
     name: generate-Git-Hub-Profile-AtCoder
     steps:
       - uses: actions/checkout@v3
-      - uses: kinakomoch7/git-hub-profile-atcoder@v0.2.0
+      - uses: kinakomoch7/git-hub-profile-atcoder@v0.2.1
         env:
           USER_NAME: Your AtCoder Username
       - name: Commit & Push
@@ -71,13 +71,16 @@ The image will be created at the following path:
 
 ```profile-AtCoder/rate-chart.svg```
 
+```profile-AtCoder/ac-chart.svg```
+
 **Note:** The action will automatically run and update every Sunday at 6 PM UTC, but you can follow this step to trigger it manually if you want to update immediately.
 
 ### Step 4. Add to Your README.md
 
 Add the path to the generated image in your `README.md` file.
 
-Example:
 ```![](./profile-AtCoder/rate-chart.svg)```
+
+```![](./profile-AtCoder/ac-chart.svg)```
 
 **Note:** It may take a few minutes for the changes to appear on your profile.
