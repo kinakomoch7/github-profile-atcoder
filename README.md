@@ -51,7 +51,7 @@ jobs:
     name: generate-Git-Hub-Profile-AtCoder
     steps:
       - uses: actions/checkout@v3
-      - uses: kinakomoch7/git-hub-profile-atcoder@v0.2.0
+      - uses: kinakomoch7/git-hub-profile-atcoder@v0.2.1
         env:
           USER_NAME: 自分のアカウント名
       - name: Commit & Push
@@ -73,13 +73,16 @@ jobs:
 
 ```profile-AtCoder/rate-chart.svg```
 
+```profile-AtCoder/ac-chart.svg```
+
 ※基本的には月曜日の午前3時に自動で起動し更新処理を行いますが、すぐに更新したい場合はこの手順を実施してください。
 
 ### 手順４.README.mdを追加
 
 生成した画像のパスを readme ファイルに追加します。
 
-例：
 ``` ![](./profile-AtCoder/rate-chart.svg) ```
+
+``` ![](./profile-AtCoder/ac-chart.svg) ```
 
 ※プロフィールの反映までに数分かかる場合があります。
