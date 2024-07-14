@@ -1,15 +1,16 @@
 import { JSDOM } from "jsdom";
 import * as d3 from "d3";
 import { formatRateDataType } from "../../types/RateDataType";
-import { CalcMaxScore } from "./calcScore";
+import { CalcMaxLimitScore, CalcMaxScore } from "./calcScore";
 import { RATE_HEIGHT, RATE_MARGIN, RATE_OUTLINE_COLOR, RATE_WIDTH } from "../../constants/styleConstants";
 import determineTimeFormat from "./determineTimeFormat";
 import determineTimeTicks from "./determineTimeTicks";
 import determineColor from "./determineColor";
 import { BG_COLOR_THEME } from "../../constants/constants";
+import { DetermineGrade } from "./determineGrade";
 
 
-const createRateChart = (data: formatRateDataType[]): string => {
+const createRateChart = (data: formatRateDataType[], userName:string): string => {
 
   const dom = new JSDOM(`<!DOCTYPE html><html><body><div class="container"></div></body></html>`);
   const container = d3.select(dom.window.document).select(".container");
@@ -28,6 +29,25 @@ const createRateChart = (data: formatRateDataType[]): string => {
     .attr("width", RATE_WIDTH)
     .attr("height", RATE_HEIGHT)
     .attr("fill", "rgb(255,255,255)");
+
+  // 級を表示
+  const level = DetermineGrade(data);
+  svg.append("text")
+    .attr("x", 50)
+    .attr("y", 30)
+    .attr("text-anchor", "middle")
+    .attr("font-size", "20px")
+    .text(level);
+
+  // ユーザ名を表示
+  const highestRating = CalcMaxScore(data);
+  svg.append("text")
+    .attr("x", 200)
+    .attr("y", 30)
+    .attr("text-anchor", "end")
+    .attr("font-size", "17px")
+    .attr("fill", determineColor(highestRating))
+    .text(userName);
   
   // グラフの背景
   svg.append("rect")
@@ -46,7 +66,7 @@ const createRateChart = (data: formatRateDataType[]): string => {
     .domain([minDate, maxDate])
     .range([RATE_MARGIN.left, RATE_WIDTH - RATE_MARGIN.right]);
 
-  const maxScore = CalcMaxScore(data) + 100; // 上に余白を持たせるため
+  const maxScore = CalcMaxLimitScore(data) + 100; // 上に余白を持たせるため
   const y = d3.scaleLinear()
     .domain([0, maxScore]).nice()
     .range([RATE_HEIGHT - RATE_MARGIN.bottom, RATE_MARGIN.top]);

@@ -34,7 +34,8 @@ const determineTimeFormat_1 = __importDefault(require("./determineTimeFormat"));
 const determineTimeTicks_1 = __importDefault(require("./determineTimeTicks"));
 const determineColor_1 = __importDefault(require("./determineColor"));
 const constants_1 = require("../../constants/constants");
-const createRateChart = (data) => {
+const determineGrade_1 = require("./determineGrade");
+const createRateChart = (data, userName) => {
     const dom = new jsdom_1.JSDOM(`<!DOCTYPE html><html><body><div class="container"></div></body></html>`);
     const container = d3.select(dom.window.document).select(".container");
     const svg = container
@@ -50,6 +51,23 @@ const createRateChart = (data) => {
         .attr("width", styleConstants_1.RATE_WIDTH)
         .attr("height", styleConstants_1.RATE_HEIGHT)
         .attr("fill", "rgb(255,255,255)");
+    // 級を表示
+    const level = (0, determineGrade_1.DetermineGrade)(data);
+    svg.append("text")
+        .attr("x", 50)
+        .attr("y", 30)
+        .attr("text-anchor", "middle")
+        .attr("font-size", "20px")
+        .text(level);
+    // ユーザ名を表示
+    const highestRating = (0, calcScore_1.CalcMaxScore)(data);
+    svg.append("text")
+        .attr("x", 200)
+        .attr("y", 30)
+        .attr("text-anchor", "end")
+        .attr("font-size", "17px")
+        .attr("fill", (0, determineColor_1.default)(highestRating))
+        .text(userName);
     // グラフの背景
     svg.append("rect")
         .attr("x", styleConstants_1.RATE_MARGIN.left)
@@ -64,7 +82,7 @@ const createRateChart = (data) => {
     const x = d3.scaleTime()
         .domain([minDate, maxDate])
         .range([styleConstants_1.RATE_MARGIN.left, styleConstants_1.RATE_WIDTH - styleConstants_1.RATE_MARGIN.right]);
-    const maxScore = (0, calcScore_1.CalcMaxScore)(data) + 100; // 上に余白を持たせるため
+    const maxScore = (0, calcScore_1.CalcMaxLimitScore)(data) + 100; // 上に余白を持たせるため
     const y = d3.scaleLinear()
         .domain([0, maxScore]).nice()
         .range([styleConstants_1.RATE_HEIGHT - styleConstants_1.RATE_MARGIN.bottom, styleConstants_1.RATE_MARGIN.top]);

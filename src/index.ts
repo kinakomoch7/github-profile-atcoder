@@ -32,9 +32,8 @@ export const main = async (): Promise<void> => {
       core.setFailed('rateData is not found');
       return;
     }
-    console.log(rateData);
 
-    writeFile('rate-chart.svg', createRateChart(rateData));
+    writeFile('rate-chart.svg', createRateChart(rateData, userName));
 
     // // // ABCのAC数取得
     // const AcCount = await getAcCount({ userName });
